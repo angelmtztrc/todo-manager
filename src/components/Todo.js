@@ -2,10 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Todo = ({ todo, todos, setTodos }) => {
+  // function to update a todo
   const handleDone = () => {
-    // todo : update the todo
+    setTodos(
+      todos.map(item => {
+        if (item.id === todo.id) {
+          item.isDone = true;
+        }
+        return item;
+      })
+    );
   };
 
+  // Function to remove a todo
   const handleRemove = () => {
     setTodos(todos.filter(item => item.id !== todo.id));
   };
@@ -27,7 +36,12 @@ const Todo = ({ todo, todos, setTodos }) => {
         <div>
           <button
             onClick={handleDone}
-            className="mr-2 px-2 py-2 bg-green-600 hover:bg-green-700 transition-all ease-out duration-300 rounded-md"
+            disabled={todo.isDone}
+            className={`${
+              todo.isDone
+                ? 'bg-green-300 cursor-not-allowed'
+                : 'bg-green-600 hover:bg-green-700'
+            } mr-2 px-2 py-2 transition-all ease-out duration-300 rounded-md`}
           >
             <svg
               className="w-6 h-6 text-white"
