@@ -2,9 +2,17 @@ import React from 'react';
 
 const Todo = ({ todo }) => {
   return (
-    <div className="px-4 py-2 border-l-4 border-green-500">
+    <div
+      className={`mb-2 px-4 py-2 border-l-4 ${
+        todo.isDone ? 'border-green-500' : 'border-orange-500'
+      }`}
+    >
       <div className="flex justify-between items-center">
-        <p className="text-base line-through text-gray-600">
+        <p
+          className={`text-base ${
+            todo.isDone ? 'line-through text-gray-600' : ''
+          }`}
+        >
           {todo.description}
         </p>
         <div>
