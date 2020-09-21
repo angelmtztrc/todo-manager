@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Input = ({ setAlert }) => {
+const Input = ({ setAlert, todos, setTodos }) => {
   // Save todo in local state
   const [todo, setTodo] = useState({
     description: '',
@@ -32,6 +33,20 @@ const Input = ({ setAlert }) => {
 
       return;
     }
+
+    // Create todo
+    setTodos([...todos, todo]);
+
+    // Show success alert
+    setAlert({
+      message: 'Todo created successfully',
+      type: 'success'
+    });
+
+    // Clear Alert
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   };
 
   return (
@@ -70,6 +85,17 @@ const Input = ({ setAlert }) => {
       </form>
     </div>
   );
+};
+
+Input.propTypes = {
+  // Set values of the Alerts
+  setAlert: PropTypes.func.isRequired,
+
+  // Array of all todos
+  todos: PropTypes.array.isRequired,
+
+  // Function to add more todos
+  setTodos: PropTypes.func.isRequired
 };
 
 export default Input;
