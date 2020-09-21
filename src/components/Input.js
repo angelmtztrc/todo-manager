@@ -37,6 +37,12 @@ const Input = ({ setAlert, todos, setTodos }) => {
     // Create todo
     setTodos([...todos, todo]);
 
+    // Clear input
+    setTodo({
+      description: '',
+      isDone: false
+    });
+
     // Show success alert
     setAlert({
       message: 'Todo created successfully',
