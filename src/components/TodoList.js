@@ -3,10 +3,12 @@ import React from 'react';
 // Components
 import Todo from './Todo';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <main className="mt-5 mx-auto bg-white w-full max-w-lg rounded-md shadow-md p-8">
-      <Todo />
+      {todos.map(todo => (
+        <Todo todo={todo} />
+      ))}
     </main>
   );
 };

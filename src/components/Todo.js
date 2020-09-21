@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Todo = () => {
+const Todo = ({ todo }) => {
   return (
     <div className="px-4 py-2 border-l-4 border-green-500">
       <div className="flex justify-between items-center">
         <p className="text-base line-through text-gray-600">
-          Buy Xbox Game Pass Ultimate Subscription
+          {todo.description}
         </p>
         <div>
           <button className="mr-2 px-2 py-2 bg-green-600 hover:bg-green-700 transition-all ease-out duration-300 rounded-md">
