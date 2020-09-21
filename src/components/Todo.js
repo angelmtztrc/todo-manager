@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, todos, setTodos }) => {
+  const handleDone = () => {
+    // todo : update the todo
+  };
+
+  const handleRemove = () => {
+    setTodos(todos.filter(item => item.id !== todo.id));
+  };
+
   return (
     <div
       className={`mb-2 px-4 py-2 border-l-4 ${
@@ -17,7 +25,10 @@ const Todo = ({ todo }) => {
           {todo.description}
         </p>
         <div>
-          <button className="mr-2 px-2 py-2 bg-green-600 hover:bg-green-700 transition-all ease-out duration-300 rounded-md">
+          <button
+            onClick={handleDone}
+            className="mr-2 px-2 py-2 bg-green-600 hover:bg-green-700 transition-all ease-out duration-300 rounded-md"
+          >
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -33,7 +44,10 @@ const Todo = ({ todo }) => {
               ></path>
             </svg>
           </button>
-          <button className="px-2 py-2 bg-red-600 hover:bg-red-700 transition-all ease-out duration-300 rounded-md">
+          <button
+            onClick={handleRemove}
+            className="px-2 py-2 bg-red-600 hover:bg-red-700 transition-all ease-out duration-300 rounded-md"
+          >
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -57,7 +71,13 @@ const Todo = ({ todo }) => {
 
 Todo.propTypes = {
   // Object of the Todo
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+
+  // Array of todos
+  todos: PropTypes.array.isRequired,
+
+  // Function to update the array
+  setTodos: PropTypes.func.isRequired
 };
 
 export default Todo;
