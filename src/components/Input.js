@@ -6,7 +6,7 @@ const Input = () => {
       <input
         type="text"
         placeholder="Todo description"
-        className="px-6 py-3 mx-auto w-full block max-w-xl rounded-md shadow-md placeholder-gray-900"
+        className="px-6 py-3 mx-auto w-full block max-w-lg rounded-md shadow-md placeholder-gray-900"
       />
     </div>
   );
