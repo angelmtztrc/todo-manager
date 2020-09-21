@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Input = () => {
+const Input = ({ setAlert }) => {
   // Save todo in local state
   const [todo, setTodo] = useState({
     description: '',
@@ -20,7 +20,16 @@ const Input = () => {
     // prevent user from sending empty field
     if (todo.description.trim() === '' || todo.description.trim() === null) {
       console.log('error');
-      // todo : show error
+      setAlert({
+        message: 'Description is required',
+        type: 'error'
+      });
+
+      // Clear Alert
+      setTimeout(() => {
+        setAlert(null);
+      }, 2000);
+
       return;
     }
   };
