@@ -16,7 +16,13 @@ const Input = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(todo);
+
+    // prevent user from sending empty field
+    if (todo.description.trim() === '' || todo.description.trim() === null) {
+      console.log('error');
+      // todo : show error
+      return;
+    }
   };
 
   return (
