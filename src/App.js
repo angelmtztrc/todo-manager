@@ -20,6 +20,18 @@ function App() {
         <Input setAlert={setAlert} todos={todos} setTodos={setTodos} />
         <TodoList todos={todos} setTodos={setTodos} />
       </div>
+      <div className="absolute bottom-0 left-0 w-full text-center mb-10">
+        <p className="text-gray-500">
+          Made with ❤ by{' '}
+          <a
+            href="https://github.com/angel-codes"
+            target="_blank"
+            className="hover:underline text-gray-400"
+          >
+            Angel Martinez
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
