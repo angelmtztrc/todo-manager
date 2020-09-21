@@ -26,6 +26,7 @@ function App() {
           <a
             href="https://github.com/angel-codes"
             target="_blank"
+            rel="noopener noreferrer"
             className="hover:underline text-gray-400"
           >
             Angel Martinez
