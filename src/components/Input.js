@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 
 const Input = ({ setAlert, todos, setTodos }) => {
   // Save todo in local state
@@ -35,7 +36,13 @@ const Input = ({ setAlert, todos, setTodos }) => {
     }
 
     // Create todo
-    setTodos([...todos, todo]);
+    setTodos([
+      ...todos,
+      {
+        ...todo,
+        id: shortid.generate()
+      }
+    ]);
 
     // Clear input
     setTodo({
