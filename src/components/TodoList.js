@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import Todo from './Todo';
@@ -11,6 +12,11 @@ const TodoList = ({ todos }) => {
       ))}
     </main>
   );
+};
+
+TodoList.propTypes = {
+  // Array of todos
+  todos: PropTypes.array.isRequired
 };
 
 export default TodoList;
