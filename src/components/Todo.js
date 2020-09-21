@@ -25,7 +25,7 @@ const Todo = ({ todo, todos, setTodos }) => {
         todo.isDone ? 'border-green-500' : 'border-orange-500'
       }`}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex flex-wrap md:flex-no-wrap justify-between items-center">
         <p
           className={`text-base ${
             todo.isDone ? 'line-through text-gray-600' : ''
@@ -33,7 +33,7 @@ const Todo = ({ todo, todos, setTodos }) => {
         >
           {todo.description}
         </p>
-        <div>
+        <div className="flex-grow md:flex-grow-0">
           <button
             onClick={handleDone}
             disabled={todo.isDone}

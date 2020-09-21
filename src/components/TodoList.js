@@ -6,7 +6,7 @@ import Todo from './Todo';
 
 const TodoList = ({ todos, setTodos }) => {
   return (
-    <main className="mt-5 mx-auto bg-white w-full max-w-lg rounded-md shadow-md p-8">
+    <main className="mt-5 mx-auto bg-white w-full max-w-xs sm:max-w-sm lg:max-w-lg rounded-md shadow-md p-8">
       {todos.length > 0 ? (
         todos.map(todo => (
           <Todo key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />

@@ -66,7 +66,7 @@ const Input = ({ setAlert, todos, setTodos }) => {
     <div className="w-full mt-5">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto w-full block max-w-lg relative"
+        className="mx-auto w-full block max-w-xs sm:max-w-sm lg:max-w-lg relative"
       >
         <input
           onChange={handleChange}
