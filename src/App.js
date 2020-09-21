@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components
 import Input from './components/Input';
 import TodoList from './components/TodoList';
 
 function App() {
+  // Save todos in local state
+  const [todos, setTodos] = useState([]);
+
   return (
     <div className="min-h-screen bg-gray-900">
       <div className="container mx-auto flex flex-col justify-center items-center pt-20">
