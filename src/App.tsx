@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 // components
 import Form from './components/Form';
+import Options from './components/Options';
+import TodoList from './components/TodoList';
 
 // interfaces
 import { Todo } from './interfaces/todo.interface';
@@ -15,6 +17,10 @@ const App = () => {
         <div className="mt-10 w-full max-w-lg space-y-10">
           <h1 className="text-center text-gray-100 text-5xl font-extrabold">Todo Manager</h1>
           <Form todos={todos} setTodos={setTodos} />
+          <div>
+            <Options />
+            <TodoList />
+          </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 mb-5">
           <p className="text-center text-gray-400">

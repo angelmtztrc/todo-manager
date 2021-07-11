@@ -20,14 +20,18 @@ const Form = ({ todos, setTodos }: FormProps) => {
   const handleSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault();
 
+    // create the new todo
     setTodos([
       ...todos,
       {
         id: nanoid(10),
         description: todo,
-        status: 'PENDING'
+        isDone: false
       }
     ]);
+
+    // clear the local state
+    setTodo('');
   };
 
   return (
@@ -35,11 +39,11 @@ const Form = ({ todos, setTodos }: FormProps) => {
       <input
         onChange={handleChange}
         type="text"
-        className="block px-4 py-2 w-full border rounded focus:outline-none focus:ring-4 focus:ring-indigo-300"
+        className="block px-4 py-2 w-full bg-gray-100 border rounded focus:outline-none focus:ring-4 focus:ring-indigo-300"
       />
       <button
         type="submit"
-        className="absolute inset-y-0 right-0 px-4 py-2 bg-green-500 border rounded-r focus:outline-none focus:ring-4 focus:ring-green-300"
+        className="absolute inset-y-0 right-0 px-4 py-2 bg-green-500 border rounded-r focus:outline-none"
       >
         <PlusIcon className="block w-5 h-5 text-gray-100" />
       </button>
