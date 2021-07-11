@@ -47,8 +47,9 @@ const Form = ({ todos, setTodos, setAlert }: FormProps) => {
   return (
     <form className="relative w-full" onSubmit={handleSubmit}>
       <input
-        onChange={handleChange}
         type="text"
+        value={todo}
+        onChange={handleChange}
         className="block px-4 py-2 w-full bg-gray-100 border rounded focus:outline-none focus:ring-4 focus:ring-indigo-300"
       />
       <button

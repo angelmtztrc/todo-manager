@@ -22,7 +22,7 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
   };
 
   const handleDelete = () => {
-    console.log('[DELETED]:', id);
+    setTodos(todos.filter(item => item.id !== id));
   };
 
   return (
