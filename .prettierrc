@@ -2,10 +2,10 @@
   "semi": true,
   "arrowParens": "avoid",
   "singleQuote": true,
-  "printWidth": 80,
+  "printWidth": 100,
   "useTabs": false,
   "tabWidth": 2,
   "trailingComma": "none",
   "bracketSpacing": true,
-  "endOfLine": "crlf"
+  "endOfLine": "lf"
 }
