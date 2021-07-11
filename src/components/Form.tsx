@@ -4,13 +4,15 @@ import { nanoid } from 'nanoid';
 
 // interfaces
 import { Todo } from '../interfaces/todo.interface';
+import { Alert } from '../hooks/useAlert';
 
 type FormProps = {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setAlert: React.Dispatch<React.SetStateAction<Alert | null>>;
 };
 
-const Form = ({ todos, setTodos }: FormProps) => {
+const Form = ({ todos, setTodos, setAlert }: FormProps) => {
   const [todo, setTodo] = useState<string>('');
 
   const handleChange = (e: FormEvent<HTMLInputElement>): void => {
@@ -19,6 +21,11 @@ const Form = ({ todos, setTodos }: FormProps) => {
 
   const handleSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault();
+
+    if (todo.trim() === '' || todo === undefined) {
+      setAlert({ content: 'Please add a description', type: 'error' });
+      return;
+    }
 
     // create the new todo
     setTodos([
@@ -29,6 +36,9 @@ const Form = ({ todos, setTodos }: FormProps) => {
         isDone: false
       }
     ]);
+
+    // print a success alert
+    setAlert({ content: 'Todo created successfully', type: 'success' });
 
     // clear the local state
     setTodo('');
