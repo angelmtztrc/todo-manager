@@ -1,25 +1,61 @@
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/solid';
 
-export type TodoItemProps = {};
+// interfaces
+import { Todo } from '../interfaces/todo.interface';
 
-const TodoItem = ({}: TodoItemProps) => {
+export type TodoItemProps = {
+  todo: Todo;
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+};
+
+const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoItemProps) => {
   const handleDone = () => {
-    console.log('[UPDATED]:');
+    setTodos(
+      todos.map(item => {
+        if (item.id === id) {
+          item.isDone = true;
+        }
+        return item;
+      })
+    );
   };
+
   const handleDelete = () => {
-    console.log('[DELETED]:');
+    console.log('[DELETED]:', id);
   };
 
   return (
-    <li className="pl-4 py-2 border-l-4 border-red-500">
+    <li
+      className={`
+        ${isDone ? 'border-green-400' : 'border-red-400'}
+        pl-4 py-2 border-l-4
+    `}
+    >
       <div className="flex items-center justify-between">
-        <span>Hello, World!</span>
+        <span
+          className={`
+        ${isDone && 'line-through text-gray-500'}
+        text-gray-900 text-base
+        `}
+        >
+          {description}
+        </span>
         <div className="flex items-center space-x-4">
           <button
             onClick={handleDone}
-            className="px-2 py-2 hover:bg-gray-50 rounded focus:outline-none focus:ring-4 focus:ring-gray-200"
+            disabled={isDone}
+            className={`
+              ${isDone && 'cursor-not-allowed'}
+              px-2 py-2 hover:bg-gray-50 rounded focus:outline-none focus:ring-4 focus:ring-gray-200
+            `}
           >
-            <CheckCircleIcon className="w-6 h-6 text-green-500" />
+            <CheckCircleIcon
+              className={`
+              ${isDone ? 'text-green-200' : 'text-green-500'}
+              w-6 h-6 
+            `}
+            />
           </button>
           <button
             onClick={handleDelete}

@@ -24,7 +24,7 @@ const App = () => {
           <Form todos={todos} setTodos={setTodos} setAlert={setAlert} />
           <div>
             <Options />
-            <TodoList />
+            <TodoList todos={todos} setTodos={setTodos} />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 mb-5">
