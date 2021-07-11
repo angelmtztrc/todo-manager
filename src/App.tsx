@@ -19,7 +19,7 @@ const App = () => {
     <div className="relative bg-gray-900">
       {alert && <Alert />}
       <main className="flex flex-col items-center min-h-screen">
-        <div className="mt-10 w-full max-w-lg space-y-10">
+        <div className="mt-10 w-full max-w-xs space-y-10 sm:max-w-md lg:max-w-lg">
           <h1 className="text-center text-gray-100 text-5xl font-extrabold">Todo Manager</h1>
           <Form todos={todos} setTodos={setTodos} setAlert={setAlert} />
           <div>
