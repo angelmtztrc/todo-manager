@@ -14,7 +14,7 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
     setTodos(
       todos.map(item => {
         if (item.id === id) {
-          item.isDone = true;
+          item.isDone = !item.isDone;
         }
         return item;
       })
@@ -44,9 +44,8 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
         <div className="flex items-center space-x-4">
           <button
             onClick={handleDone}
-            disabled={isDone}
+            
             className={`
-              ${isDone && 'cursor-not-allowed'}
               px-2 py-2 hover:bg-gray-50 rounded focus:outline-none focus:ring-4 focus:ring-gray-200
             `}
           >
