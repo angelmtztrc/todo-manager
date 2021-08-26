@@ -11,8 +11,12 @@ import TodoList from './components/TodoList';
 // interfaces
 import { Todo } from './interfaces/todo.interface';
 
+// constants
+import { FILTER_OPTIONS } from './constants';
+
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [filter, setFilter] = useState<string>(FILTER_OPTIONS.all);
   const [alert, setAlert, Alert] = useAlert();
 
   return (
@@ -23,8 +27,8 @@ const App = () => {
           <h1 className="text-center text-gray-100 text-5xl font-extrabold">Todo Manager</h1>
           <Form todos={todos} setTodos={setTodos} setAlert={setAlert} />
           <div className="space-y-4">
-            <TodoList todos={todos} setTodos={setTodos} />
-            <Options todos={todos} setTodos={setTodos} />
+            <TodoList todos={todos} setTodos={setTodos} filter={filter} />
+            <Options todos={todos} setTodos={setTodos} filter={filter} setFilter={setFilter} />
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 mb-5">

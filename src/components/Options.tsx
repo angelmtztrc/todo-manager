@@ -1,22 +1,21 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
+
+// interfaces
 import { Todo } from '../interfaces/todo.interface';
+
+// constants
+import { FILTER_OPTIONS } from '../constants';
 
 type OptionsProps = {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const filters = {
-  all: 'All',
-  active: 'Active',
-  done: 'Done'
-};
-
-const Options = ({ todos, setTodos }: OptionsProps) => {
-  const [filter, setFilter] = useState<string>(filters.all);
-
+const Options = ({ todos, setTodos, filter, setFilter }: OptionsProps) => {
   const handleMark = () => {
     setTodos(
       todos.map(item => {
@@ -51,7 +50,7 @@ const Options = ({ todos, setTodos }: OptionsProps) => {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-2 py-1 w-full max-h-60 text-base bg-gray-100 rounded focus:outline-none shadow-lg overflow-auto ring-1 ring-black ring-opacity-5 sm:text-sm">
-              {Object.values(filters).map((value, idx) => (
+              {Object.values(FILTER_OPTIONS).map((value, idx) => (
                 <Listbox.Option
                   key={idx}
                   className={({ active }) =>
