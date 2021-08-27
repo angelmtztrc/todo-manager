@@ -27,6 +27,7 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
 
   return (
     <li
+      aria-label="to-do"
       className={`
         ${isDone ? 'border-green-400' : 'border-red-400'}
         pl-4 py-2 border-l-4
@@ -43,8 +44,8 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
         </span>
         <div className="flex items-center space-x-4">
           <button
+            aria-label="complete-todo"
             onClick={handleDone}
-            
             className={`
               px-2 py-2 hover:bg-gray-50 rounded focus:outline-none focus:ring-4 focus:ring-gray-200
             `}
@@ -57,6 +58,7 @@ const TodoItem = ({ todo: { id, description, isDone }, todos, setTodos }: TodoIt
             />
           </button>
           <button
+            aria-label="delete-todo"
             onClick={handleDelete}
             className="px-2 py-2 hover:bg-gray-50 rounded focus:outline-none focus:ring-4 focus:ring-gray-200"
           >

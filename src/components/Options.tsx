@@ -35,7 +35,7 @@ const Options = ({ todos, setTodos, filter, setFilter }: OptionsProps) => {
       >
         Mark All
       </button>
-      <Listbox value={filter} onChange={setFilter}>
+      <Listbox value={filter} onChange={setFilter} as={'div'} aria-label="select-filter">
         <div className="relative w-40">
           <Listbox.Button className="relative pl-4 pr-10 py-2 w-full text-left bg-gray-100 rounded focus:outline-none cursor-default focus:ring-4 focus:ring-indigo-300">
             <span className="block truncate">{filter}</span>

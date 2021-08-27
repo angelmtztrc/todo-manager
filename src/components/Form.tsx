@@ -55,6 +55,7 @@ const Form = ({ todos, setTodos, setAlert }: FormProps) => {
       />
       <button
         type="submit"
+        aria-label="create"
         className="absolute inset-y-0 right-0 px-4 py-2 bg-green-500 border rounded-r focus:outline-none"
       >
         <PlusIcon className="block w-5 h-5 text-gray-100" />
